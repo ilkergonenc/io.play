@@ -1,15 +1,15 @@
 <header class="bg-slate-50 shadow-md">
   <nav class="grid grid-cols-6 py-4">
 
-    <div class="flex">
+    <div class="hidden justify-end px-4 xl:flex">
       <input 
-        class="m-auto px-3 py-1 placeholder-gray-400 border border-slate-300 rounded shadow-sm" 
+        class="px-2 py-1 placeholder-gray-400 border border-slate-300 rounded shadow-sm text-right" 
         type="search" 
-        placeholder="Search..." 
+        placeholder="Search" 
       />
     </div>
 
-    <div class="col-span-4 flex justify-between items-center px-4 border-x border-slate-300">
+    <div class="col-span-6 flex justify-between items-center px-4 border-x border-slate-300 xl:col-span-4">
       <div>
         <span class="brand">{{ meta.name }}</span>
       </div>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-center space-x-8"> 
+    <div class="hidden justify-start items-center px-4 space-x-6 xl:flex"> 
       {% for item in socials %}
         <a 
           href={{ item.link }}
