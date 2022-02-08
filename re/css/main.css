@@ -1,0 +1,18 @@
+/* @import "tailwindcss/base"; */
+
+/* @import "tailwindcss/components"; */
+
+/* @import "tailwindcss/utilities"; */
+@import "utilities";
+
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .brand {
+    @apply font-brand font-semibold text-xl text-slate-800  ;
+  }
+}
+
+@tailwind utilities;
+

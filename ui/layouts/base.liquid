@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang={{ meta.lang }}>
+<head>
+  {% block head %}{% render "head", title: title %}{% endblock %}
+</head>
+<body>
+  <!-- Header ======================================================= -->
+  {% block header %}{% render "header" %}{% endblock %}
+  <!-- Header | End ================================================= -->
+
+  {% block main %}
+    <!-- Main ======================================================= -->
+    <main class="
+      w-2/3 mx-auto px-5 
+      min-h-[70vh] py-7
+    ">
+      {% block %}<!-- MainContent -->{% endblock %}
+    </main>
+    <!-- Main | End ================================================= -->
+  {% endblock %}
+
+  <!-- Footer ======================================================= -->
+  {% block footer %}{% render "footer" %}{% endblock %}
+  <!-- Footer | End ================================================= -->
+
+  {% block foot %}{% render "foot" %}{% endblock %}
+  <!-- body & html | End ======================================================= -->
+</body>
+</html>

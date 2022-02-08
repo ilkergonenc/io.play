@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sources":["../../../re/js/update.js"],"sourcesContent":["const span = document.querySelector('#brand-js');\nexport default function update() {\n  span.textContent = 'play.io';\n}"],"names":["document","querySelector","textContent"],"mappings":"yBAAaA,SAASC,cAAc,aAE7BC,YAAc"}
