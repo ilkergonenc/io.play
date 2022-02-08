@@ -17,7 +17,7 @@
       <div class="flex items-center space-x-4"> 
         {% for item in navs.header.main %}
           <a 
-            href={{ item.link }}
+            href={{ root.path }}{{ item.link }}
             {% if item.class %}class="{{ item.class }}"{% endif %}
           >
             {{ item.title }}

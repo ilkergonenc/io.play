@@ -1,5 +1,6 @@
 root: 
-  cwd: '.'
+  cwd: './'
+  path: '/@'
 
 meta: 
   lang: en
@@ -13,7 +14,7 @@ navs:
         title: Home
       - link: '/docs'
         title: Docs
-      - link: '#'
+      - link: '/examples'
         title: Examples
       - link: '#'
         title: Downloads
