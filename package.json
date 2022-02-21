@@ -29,7 +29,7 @@
     "html-watch": "chokidar \"kit/**/*.md\" \"ui/**/*.liquid\" -c \"npm run html\"",
     "html-lint": "node cli/w3.validate.js",
     "css": "postcss --config cli/postcss.config.js re/css/main.css -o @/assets/css/main.css --env=production",
-    "css-watch": "chokidar \"re/css/**/*.js\" -c \"npm run css\"",
+    "css-watch": "chokidar \"re/css/**/*.css\" -c \"npm run css\"",
     "css-lint": "stylelint --config cli/stylelint.config.js re/**/*.css",
     "css-fix": "stylelint --config cli/stylelint.config.js re/**/*.css --fix",
     "js": "rollup --config cli/rollup.config.js",
