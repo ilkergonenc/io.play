@@ -41,9 +41,9 @@ navs:
         - show-hide-password
   
 socials:
-  - platform: Githubc
+  - platform: Github
     icon: github
-    link: '#'
+    link: https://github.com/ilkergonenc/io.play
   - platform: Dribbble
     icon: dribbble
     link: '#'
