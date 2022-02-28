@@ -1,0 +1,19 @@
+tabs:
+  foo:
+    title: Foo Board
+    tabs:
+      - title: preview
+        body: docs/foo.html
+      - title: html
+        body: docs/foo.html
+      - title: js
+        body: docs/foo.js
+  bar:
+    title: Bar Board
+    tabs:
+      - title: preview
+        body: docs/foo.html
+      - title: html
+        body: docs/foo.html
+      - title: js
+        body: docs/foo.js
