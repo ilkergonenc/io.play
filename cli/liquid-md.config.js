@@ -13,17 +13,22 @@ const config = {
       path.resolve(__dirname, _root+'ui/components'),
       path.resolve(__dirname, _root+'ui/layouts/components'),
       path.resolve(__dirname, _root+'ui/sections'),
+      path.resolve(__dirname, _root+'kit'),
     ]
   },
   paths: {
-    src:    _root+'kit/*.md', 
+    src:    _root+'kit/**/*.md', 
     dest:   _root+'@' ,
   },
   frontMatter:    { property: 'frontMatter', remove: true },
   // liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}{% block page %}${contents}{% endblock %}`,
   liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}${contents}`,
   beautify:       { indent_size: 2, indent_with_tabs: true },
-  rename:         file => {if (file.basename!='index') return { dirname: file.dirname+'/'+file.basename, basename: 'index', extname: '.html' }}
+  rename:         file => {if (file.basename!='index') return { dirname: file.dirname+'/'+file.basename, basename: 'index', extname: '.html' }},
+  fixMarkdown:    str => str.replaceAll('&quot;', '"')  // fix " doubleQuotes
+                            .replaceAll("&#39;", "'")   // fix ' singleQuotes
+                            .replaceAll("<p>{%", "{%")  // fix default markdown <p> around liquid tags
+                            .replaceAll("%}</p>", "%}") // fix default markdown </p> around liquid tags
 }
 // BUILD STATIC HTML FROM LIQUID & FRONTMATTER (MARKDOWN & YAML)
 exports.staticHTML    = async function staticHTML() {
@@ -40,9 +45,7 @@ exports.staticHTML    = async function staticHTML() {
   const engine        = new Liquid(config.engine)                         // strart liquid engine
   const liquidjs      = map(async function (file, callback) {             // map stream
     const frontMatter = file[config.frontMatter.property]                 // catch data from stream file
-    let strContents   = file.contents.toString()                          // buffer to string stream content
-    strContents       = strContents.replaceAll('&quot;', '"')             // fix|replace " doubleQuotes
-    strContents       = strContents.replaceAll("&#39;", "'")              // fix|replace ' singleQuotes
+    const strContents = config.fixMarkdown(file.contents.toString())      // buffer to string stream content
     const liquid      = config.liquidTemplate(strContents, frontMatter)   // wrap in to a liquid layout
     const html        = await engine.parseAndRender(liquid, frontMatter)  // render liquid to html
     file.contents     = new Buffer.from(html)                             // string back to buffer
