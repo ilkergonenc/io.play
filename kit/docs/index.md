@@ -1,22 +1,19 @@
 ---
-_root: '../'
-title: Docs
-foo:
-  title: Foo Board
-  activeTab: 3
-  tabs:
-    - title: preview
-      body: docs/foo.html
-    - title: html
-      body: docs/foo.html
-    - title: js
-      body: docs/foo.js
-bar: Tailwind UI is a collection of professionally designed, pre-built, fully responsive HTML snippets you can drop into your Tailwind projects. Get started by checking out our free preview components, or browsing the PNG previews in the categories you're most curious about.
+title: Welcome
+layout: docs
+name: İlker Gönenç
 ---
-<!-- Clipboard & Highlight -->
-{% render 'board', DATA: foo %}
 
-<!-- Callout & Alert-->
-<div class="callout">
-  {{ bar }}
-</div>
+<p class="text-2xl font-light mt-16">
+{{ title }} to {{ meta.name }} 
+</p>
+<p class="text-3xl font-light mt-2">
+a {{ meta.title }} 
+</p>
+<p class="text-xl font-light mt-4">
+create docs, blogs & landing pages
+</p>
+<p class="text-md font-light mt-1">
+even small sized comercial sites
+</p>
+
