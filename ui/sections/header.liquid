@@ -1,43 +1,35 @@
-<header class="bg-slate-50 shadow-md">
-  <nav class="grid grid-cols-6 py-4">
+<header data-skin='dark' class="bg-surface text-on-surface border-b border-skin-soft drop-shadow">
+  <nav class="container mx-auto py-4 px-12 flex justify-between items-center">
 
-    <div class="hidden justify-end px-4 xl:flex">
-      <input 
-        class="placeholder-gray-400 border border-slate-300 rounded shadow-sm px-4" 
-        type="search" 
-        placeholder="Search" 
-      />
+    <div>
+      <a href={{ root.path }} class="brand text-on-surface">{{ meta.name }}</a>
     </div>
 
-    <div class="col-span-6 flex justify-between items-center px-4 border-x border-slate-300 xl:col-span-4">
-      <div>
-        <a href={{ root.path }} class="brand">{{ meta.name }}</a>
-      </div>
-
-      <div class="flex items-center space-x-4"> 
-        {% for item in navs.header.main %}
-          <a 
-            href={{ root.path }}{{ item.link }}
-            {% if item.class %}class="{{ item.class }}"{% endif %}
-          >
-            {{ item.title }}
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="hidden justify-start items-center px-4 space-x-6 xl:flex"> 
-      {% for item in socials %}
+    <div class="flex items-center space-x-4"> 
+      {% for item in navs.header.main %}
         <a 
-          href={{ item.link }}
-          title={{ item.platform }}
-          target="_blank"
+          href={{ root.path }}{{ item.link }}
+          {% if item.class %}class="{{ item.class }}"{% endif %}
         >
-          {% render '@/svg', icon: item.icon %}
+          <span>{{ item.title }}</span>{% if item.title == 'Play' %}<i class="bi bi-play-fill ml-1 -mr-2"></i>{% endif %}
         </a>
       {% endfor %}
+      <div class="flex items-center space-x-6 pl-6 border-l border-skin-soft">
+        <a href="#">
+          {% render '@/svg', icon: 'moon-stars', size: 18, class: ' fill-muted'  %}
+        </a>
+        <a href="#">
+          {% render '@/svg', icon: 'paint-bucket', size: 24, class: ' fill-muted'  %}
+        </a>
+        <a 
+          href={{ socials[0].link }}
+          title={{ socials[0].platform }}
+          target="_blank"
+        >
+          {% render '@/svg', icon: socials[0].icon, size: 24 %}
+        </a>
+      </div>
     </div>
 
   </nav>
 </header>
-

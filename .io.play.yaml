@@ -18,7 +18,7 @@ navs:
         title: Experience
       - link: '#'
         title: Play
-        class: hidden bg-slate-800 text-slate-100 px-4 py-2 rounded-full md:block
+        class: hidden bg-primary text-secondary font-semibold px-6 py-2 rounded-full drop-shadow md:block hover:bg-indigo-700 transition
     search:
       placeholder: Search...
 
@@ -44,12 +44,12 @@ socials:
   - platform: Github
     icon: github
     link: https://github.com/ilkergonenc/io.play
-  - platform: Dribbble
-    icon: dribbble
-    link: '#'
-  - platform: Behance
-    icon: behance
-    link: '#'
-  - platform: Instagram
-    icon: instagram
-    link: '#'
+  # - platform: Dribbble
+  #   icon: dribbble
+  #   link: '#'
+  # - platform: Behance
+  #   icon: behance
+  #   link: '#'
+  # - platform: Instagram
+  #   icon: instagram
+  #   link: '#'
