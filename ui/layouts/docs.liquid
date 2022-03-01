@@ -10,7 +10,11 @@
 
   {% block main %}
     <!-- Main ======================================================= -->
-    <main class="w-full mx-auto">
+    <main class="
+      w-full mx-auto px-5 
+      min-h-[70vh] py-7
+      xl:w-2/3
+    ">
       {% block %}<!-- MainContent -->{% endblock %}
     </main>
     <!-- Main | End ================================================= -->
@@ -20,7 +24,7 @@
   {% block footer %}{% render "footer" %}{% endblock %}
   <!-- Footer | End ================================================= -->
 
-  {% block foot %}{% render "docs/foot", _root: _root %}{% endblock %}
+  {% block foot %}{% render "foot", _root: _root %}{% endblock %}
   <!-- body & html | End ======================================================= -->
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang={{ meta.lang }}>
 <head>
-  {% block head %}{% render "docs/head", title: title, _root: _root %}{% endblock %}
+  {% block head %}{% render "head", title: title, _root: _root %}{% endblock %}
 </head>
 <body>
   <!-- Header ======================================================= -->
-  {% block header %}{% render "docs/header" %}{% endblock %}
+  {% block header %}{% render "header" %}{% endblock %}
   <!-- Header | End ================================================= -->
 
   {% block main %}
@@ -20,7 +20,7 @@
   {% block footer %}{% render "footer" %}{% endblock %}
   <!-- Footer | End ================================================= -->
 
-  {% block foot %}{% render "docs/foot", _root: _root %}{% endblock %}
+  {% block foot %}{% render "foot", _root: _root %}{% endblock %}
   <!-- body & html | End ======================================================= -->
 </body>
 </html>

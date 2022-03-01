@@ -12,10 +12,12 @@ navs:
     main:
       - link: '/'
         title: Design
-      - link: '/docs'
+      - link: '/build'
         title: Build
-      - link: '/examples'
+      - link: '/experience'
         title: Experience
+      - link: '/docs'
+        title: Docs
       - link: '#'
         title: Play
         class: hidden bg-primary text-secondary font-semibold px-6 py-2 rounded-full drop-shadow md:block hover:bg-indigo-700 transition

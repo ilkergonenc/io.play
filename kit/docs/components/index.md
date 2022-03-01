@@ -1,5 +1,5 @@
 ---
-_root: '../'
+_root: '../../'
 layout: docs
 title: Docs
 foo:
