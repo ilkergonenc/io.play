@@ -1,0 +1,16 @@
+<div class="container mx-auto grid grid-cols-3">
+  <div class="px-4 py-12 text-right">
+
+    {% for item in typo %}
+      <p class="{{ item.class }} mb-4">{{ item.title }}</p>
+    {% endfor %}
+
+  </div>
+  <div class="col-span-2 px-4 py-12">
+
+    {% for item in typo %}
+      <p class="{{ item.class }} mb-4">{{ text }}</p>
+    {% endfor %}
+
+  </div>
+</div>
