@@ -1,5 +1,6 @@
 ---
 title: Welcome
+layout: docs
 name: İlker Gönenç
 ---
 

@@ -1,1 +1,44 @@
 <h1>{{ DATA.title }}</h1>
+
+<section x-data="{ tab: {{ DATA.activeTab }} }" x-cloak class="bg-white rounded-lg drop-shadow mb-4">
+  <ul class="flex border rounded-lg rounded-b-none">
+  {% for tab in DATA.tabs %}
+    <li 
+      @click="tab = {{ forloop.index }}" 
+      class="flex items-center capitalize px-5 py-3 border-b-2 cursor-pointer{% if forloop.first == true %} rounded-tl-lg{% endif %}"
+      :class="tab == {{ forloop.index }} ? 'border-slate-500 bg-slate-300' : 'border-slate-200 hover:bg-slate-200'"
+    >
+      {{ tab.title }}
+    </li>
+  {% endfor %}
+  <li class="flex">
+  </li>
+  </ul>
+  <div class="p-4 border border-t-0 rounded-lg rounded-t-none">
+    {% for tab in DATA.tabs %}
+    <div x-show="tab == {{ forloop.index }}">
+      {% if tab.title == 'preview' %}
+        {% render tab.body %}
+      {% else %}
+        <figure class='relative'>
+          <pre>
+            <code id="{{ DATA.title | replace: ' ', '' }}{{ tab.title | capitalize }}" class="language-{{ tab.title }}" style="padding: 0;">{% render tab.body %}</code>
+          </pre>
+          <button 
+            x-data
+            x-tooltip="Copy to clipboard!"
+            data-clipboard-target="#{{ DATA.title | replace: ' ', '' }}{{ tab.title | capitalize }}" 
+            class="btn-clipboard"
+            type="button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+              <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+              <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+            </svg>
+          </button>
+        </figure>
+      {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+</section>
