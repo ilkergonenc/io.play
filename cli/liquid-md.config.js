@@ -2,6 +2,7 @@
 const path = require('path')
 const fs   = require('fs')
 const yaml = require('js-yaml')
+const { dirname } = require('path')
 const _root = '../'
 const config = {
   engine: {
@@ -14,17 +15,25 @@ const config = {
       path.resolve(__dirname, _root+'ui/layouts/components'),
       path.resolve(__dirname, _root+'ui/sections'),
       path.resolve(__dirname, _root+'kit'),
+      path.resolve(__dirname, _root+'re/css'),
     ]
   },
   paths: {
-    src:    _root+'kit/**/*.md', 
+    src:    [_root+'kit/**/*.md', _root+'re/**/*.md'], 
     dest:   _root+'@' ,
   },
   frontMatter:    { property: 'frontMatter', remove: true },
   // liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}{% block page %}${contents}{% endblock %}`,
   liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}${contents}`,
   beautify:       { indent_size: 2, indent_with_tabs: true },
-  rename:         file => {if (file.basename!='index') return { dirname: file.dirname+'/'+file.basename, basename: 'index', extname: '.html' }},
+  rename:         file => {
+    if (file.dirname.includes('css') && file.dirname.includes('docs')) 
+      file.dirname = file.dirname.replace('css', 'docs').replace('\\docs', '')
+    if (file.basename!='index' && !file.dirname.includes(file.basename.replace('_',''))) 
+      return { dirname: file.dirname+'/'+file.basename, basename: 'index', extname: '.html' }
+    else 
+      return { dirname: file.dirname, basename: 'index', extname: '.html' }
+  },
   fixMarkdown:    str => str.replaceAll('&quot;', '"')  // fix " doubleQuotes
                             .replaceAll("&#39;", "'")   // fix ' singleQuotes
                             .replaceAll("<p>{%", "{%")  // fix default markdown <p> around liquid tags
