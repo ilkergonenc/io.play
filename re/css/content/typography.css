@@ -1,0 +1,96 @@
+@layer components {
+  .display-xl {
+    font-size: 1.6875rem; /* 27px */
+    line-height: 2.25rem; /* 36px */
+    @apply font-medium; 
+  }
+  .display-lg {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.75rem; /* 28px */
+    @apply font-medium; 
+  }
+  .display-md {
+    font-size: 1.3125rem; /* 21px */
+    line-height: 1.75rem; /* 28px */
+    @apply font-normal;
+  }
+  .display-sm {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    @apply font-normal;
+  }
+  @screen lg {
+    .display-xl {
+      font-size: 2.625rem; /* 42px */
+      line-height: 2.75rem; /* 44px */
+    }
+    .display-lg {
+      font-size: 1.75rem; /* 28px */
+      line-height: 2rem; /* 32px */
+    }
+    .display-md {
+      font-size: 1.625rem; /* 26px */
+      line-height: 2rem; /* 32px */
+    }
+    .display-sm {
+      font-size: 1.25rem; /* 20px */
+    }
+  }
+  .heading-page {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.75rem; /* 28px */
+    @apply font-semibold;
+  }
+  .heading {
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.5rem; /* 24px */
+    @apply font-medium;
+  }
+  .heading-sub {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1rem; /* 16px */
+    @apply font-semibold uppercase;
+  }
+  @screen lg {
+    .heading-page {
+      font-size: 1.25rem; /* 20px */
+      line-height: 1.5rem; /* 24px */
+    }
+    .heading {
+      font-size: 1rem; /* 16px */
+    }
+    .heading-sub {
+      font-size: 0.75rem; /* 12px */
+    }
+  }
+  .typo-button {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 0.9375rem; /* 15px */
+    @apply font-medium;
+  }
+  .typo-body {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.25rem; /* 20px */
+    @apply font-normal;
+  }
+  .typo-caption {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.25rem; /* 20px */
+    @apply font-normal;
+  }
+  @screen sm {
+    .typo-button {
+      font-size: 0.875rem; /* 14px */
+      line-height: 1rem; /* 16px */
+    }
+    .typo-body {
+      font-size: 0.875rem; /* 14px */
+    }
+    .typo-caption {
+      font-size: 0.75rem; /* 12px */
+    }
+  }
+  .brand {
+    @apply font-brand font-semibold text-xl text-slate-800;
+  }
+}
