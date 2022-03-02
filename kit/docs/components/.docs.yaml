@@ -1,3 +1,4 @@
+namespace: boards
 tabs:
   foo:
     title: Foo Board
