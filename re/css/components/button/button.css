@@ -1,0 +1,8 @@
+@layer components {
+  .btn {
+    @apply typo-button px-6 py-3 rounded;
+  }
+  .btn-primary {
+    @apply bg-primary text-secondary;
+  }
+}
