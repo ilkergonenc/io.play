@@ -1,4 +1,5 @@
 module.exports = { 
+  map: { inline: false },
   plugins: {
     'postcss-import': {},
     tailwindcss: { config: 'cli/tailwind.config.js' },
