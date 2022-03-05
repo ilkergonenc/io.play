@@ -25,7 +25,10 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "live-server --open=@",
+    "data": "gulp --gulpfile cli/liquid-md.config.js staticDATA",
     "html": "gulp --gulpfile cli/liquid-md.config.js staticHTML",
+    "view": "npm-run-all --serial data html",
+    "data-watch": "chokidar \".io.*.yaml\" -c \"npm run data\"",
     "html-watch": "chokidar \"kit/**/*.md\" \"ui/**/*.liquid\" -c \"npm run html\"",
     "html-lint": "node cli/w3.validate.js",
     "css": "postcss --config cli/postcss.config.js re/css/main.css -o @/assets/css/main.css --env=production",
@@ -58,6 +61,7 @@
     "eslint-plugin-import": "^2.25.4",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
     "gulp-data": "^1.3.1",
     "gulp-front-matter": "^1.3.0",
     "gulp-html-beautify": "^1.0.1",

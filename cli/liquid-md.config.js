@@ -1,13 +1,12 @@
 // CONFIGURATION
 const path = require('path')
 const fs   = require('fs')
-const yaml = require('js-yaml')
-const { dirname } = require('path')
+const YAML = require('js-yaml')
 const _root = '../'
 const config = {
   engine: {
     extname:  '.liquid',
-    globals:  yaml.load(fs.readFileSync(_root+'.io.play.yaml', 'utf8')),
+    globals:  YAML.load(fs.readFileSync('temp/DATA.yaml', 'utf8')),
     root:     path.resolve(__dirname, _root+'ui/'),        // root files for `.render()` and `.parse()`
     layouts:  path.resolve(__dirname, _root+'ui/layouts'), // layout files for `{% layout %}`
     partials: [                                            // partial files for `{% include %}` and `{% render %}`
@@ -69,4 +68,23 @@ exports.staticHTML    = async function staticHTML() {
     .pipe(beautify(config.beautify))
     .pipe(rename(config.rename))
     .pipe(dest(config.paths.dest))
+}
+
+exports.staticDATA    = async function staticDATA() {
+
+  const { src, dest } = require('gulp'); 
+  const map           = require('map-stream'); 
+  const concat        = require('gulp-concat'); 
+
+  return src('../.io.*.yaml')
+    .pipe(map(async function (file, callback) { 
+      let key = file.path.split('\\').pop().split('.')[2]
+      let data = {}
+      data[key] = YAML.load(file.contents)
+      file.contents     = new Buffer.from(YAML.dump(data))   
+      callback(null, file)
+    }))
+    .pipe(concat('DATA.yaml'))
+    .pipe(dest('../cli/temp'))
+
 }
