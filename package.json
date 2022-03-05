@@ -29,7 +29,7 @@
     "html": "gulp --gulpfile cli/liquid-md.config.js staticHTML",
     "view": "npm-run-all --serial data html",
     "data-watch": "chokidar \".io.*.yaml\" -c \"npm run data\"",
-    "html-watch": "chokidar \"kit/**/*.md\" \"ui/**/*.liquid\" -c \"npm run html\"",
+    "html-watch": "chokidar \"kit/**/*.(md|html)\" \"re/**/*.(md|html)\" \"ui/**/*.liquid\" -c \"npm run html\"",
     "html-lint": "node cli/w3.validate.js",
     "css": "postcss --config cli/postcss.config.js re/css/main.css -o @/assets/css/main.css --env=production",
     "css-watch": "chokidar \"re/css/**/*.css\" -c \"npm run css\"",
