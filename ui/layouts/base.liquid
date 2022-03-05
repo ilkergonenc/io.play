@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang={{ meta.lang }}>
+{% assign DATA = play %}
+<html lang={{ DATA.meta.lang }}>
 <head>
   {% block head %}{% render "head", title: title, _root: _root %}{% endblock %}
 </head>

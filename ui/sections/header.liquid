@@ -1,14 +1,15 @@
+{% assign DATA = play %}
 <header data-skin='dark' class="bg-surface text-on-surface border-b border-skin-soft drop-shadow">
   <nav class="container mx-auto py-4 px-12 flex justify-between items-center">
 
     <div>
-      <a href={{ root.path }} class="brand text-on-surface">{{ meta.name }}</a>
+      <a href={{ DATA.root.path }} class="brand text-on-surface">{{ DATA.meta.name }}</a>
     </div>
 
     <div class="flex items-center space-x-4"> 
-      {% for item in navs.header.main %}
+      {% for item in DATA.navs.header.main %}
         <a 
-          href={{ root.path }}{{ item.link }}
+          href={{ DATA.root.path }}{{ item.link }}
           {% if item.class %}class="{{ item.class }}"{% endif %}
         >
           <span>{{ item.title }}</span>{% if item.title == 'Play' %}<i class="bi bi-play-fill ml-1 -mr-2"></i>{% endif %}
@@ -22,11 +23,11 @@
           {% render '@/svg', icon: 'paint-bucket', size: 24, class: ' fill-muted'  %}
         </a>
         <a 
-          href={{ socials[0].link }}
-          title={{ socials[0].platform }}
+          href={{ DATA.socials[0].link }}
+          title={{ DATA.socials[0].platform }}
           target="_blank"
         >
-          {% render '@/svg', icon: socials[0].icon, size: 24 %}
+          {% render '@/svg', icon: DATA.socials[0].icon, size: 24 %}
         </a>
       </div>
     </div>

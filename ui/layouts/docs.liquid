@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang={{ meta.lang }}>
+{% assign DATA = docs %}
+<html lang={{ DATA.meta.lang }}>
 <head>
   {% block head %}{% render "docs/head", title: title, _root: _root %}{% endblock %}
 </head>

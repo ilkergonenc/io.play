@@ -1,9 +1,10 @@
+{% assign DATA = play %}
 <!-- Meta ======================================================= -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Title ======================================================= -->
-<title>{{ title }} ∙ {{ meta.title }} ∙ {{ meta.name }}</title>
+<title>{{ title }} ∙ {{ DATA.meta.title }} ∙ {{DATA.meta.name }}</title>
 <link rel="icon" type="image/png" href={{ 'favicon.png' | prepend: _root }}>
 <!-- Fonts ======================================================= -->
 <link rel='preconnect' href='https://fonts.googleapis.com'>
