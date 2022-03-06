@@ -1,39 +1,39 @@
 @layer base {
   [data-skin='light'], :root {
-    --color-base: 250, 250, 249;
-    --color-soft: 241, 245, 249;
-    --color-surface: 248, 250, 252;
-    --color-on-surface: 17, 24, 39;
-    --color-primary: 49, 46, 129;
-    --color-secondary: 238, 242, 255;
-    --color-muted: 148, 163, 184;
+    --color-base: 250 250 249;
+    --color-soft: 241 245 249;
+    --color-surface: 248 250 252;
+    --color-on-surface: 17 24 39;
+    --color-primary: 49 46 129;
+    --color-secondary: 238 242 255;
+    --color-muted: 148 163 184;
   }
   [data-skin='dark'] {
-    --color-base: 28, 25, 23;
-    --color-soft: 55, 65, 81;
-    --color-surface: 30, 41, 59;
-    --color-on-surface: 250, 250, 249;
-    --color-primary: 49, 46, 129;
-    --color-secondary: 238, 242, 255;
-    --color-muted: 107, 114, 128;
+    --color-base: 28 25 23;
+    --color-soft: 55 65 81;
+    --color-surface: 30 41 59;
+    --color-on-surface: 250 250 249;
+    --color-primary: 49 46 129;
+    --color-secondary: 238 242 255;
+    --color-muted: 107 114 128;
   }
   [data-skin='lime-dark'] {
-    --color-base: 28, 25, 23;
-    --color-soft: 63, 98, 18;
-    --color-surface: 54, 83, 20;
-    --color-on-surface: 247, 254, 231;
-    --color-primary: 77, 124, 15;
-    --color-secondary: 236, 252, 203;
-    --color-muted: 217, 249, 157;
+    --color-base: 28 25 23;
+    --color-soft: 63 98 18;
+    --color-surface: 54 83 20;
+    --color-on-surface: 247 254 231;
+    --color-primary: 77 124 15;
+    --color-secondary: 236 252 203;
+    --color-muted: 217 249 157;
   }
   [data-skin='lime-light'] {
-    --color-base: 250, 250, 249;
-    --color-soft: 217, 249, 157;
-    --color-surface: 247, 254, 231;
-    --color-on-surface: 54, 83, 20;
-    --color-primary: 217, 249, 157;
-    --color-secondary: 54, 83, 20;
-    --color-muted: 101, 163, 13;
+    --color-base: 250 250 249;
+    --color-soft: 217 249 157;
+    --color-surface: 247 254 231;
+    --color-on-surface: 54 83 20;
+    --color-primary: 217 249 157;
+    --color-secondary: 54 83 20;
+    --color-muted: 101 163 13;
   }
   /* drop-shadows */
   [data-skin='light'] .drop-shadow, 
