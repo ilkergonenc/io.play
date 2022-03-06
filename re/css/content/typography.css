@@ -78,7 +78,7 @@
     line-height: 1.25rem; /* 20px */
     @apply font-normal;
   }
-  @screen sm {
+  @screen lg {
     .typo-button {
       font-size: 0.875rem; /* 14px */
       line-height: 1rem; /* 16px */
@@ -89,8 +89,5 @@
     .typo-caption {
       font-size: 0.75rem; /* 12px */
     }
-  }
-  .brand {
-    @apply font-brand font-semibold text-xl text-slate-800;
   }
 }
