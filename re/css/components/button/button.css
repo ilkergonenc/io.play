@@ -1,8 +1,22 @@
 @layer components {
   .btn {
-    @apply typo-button px-6 py-3 rounded;
+    @apply bg-gray-100 text-gray-900 border-gray-300 typo-button px-4 py-2 border rounded;
   }
-  .btn-primary {
+  [data-skin='dark'] .btn {
+    @apply bg-gray-800 text-gray-50 border-gray-900;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5;
+    font-size: 0.75rem; /* 12px */
+    line-height: 0.875rem; /* 14px */
+  }
+  .btn-lg {
+    @apply px-6 py-3;
+    font-size: 1rem; /* 16px */
+    line-height: 1rem; /* 16px */
+  }
+  .btn-primary, 
+  [data-skin='dark'] .btn-primary {
     @apply bg-primary text-secondary;
   }
 }

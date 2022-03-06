@@ -7,4 +7,4 @@ title: Buttons
 
 # {{ group }} ∙ {{ title }}
 
-<button class="btn btn-primary" type="button">Button</button>
+{% render 'components/button/docs/examples.html' %}
