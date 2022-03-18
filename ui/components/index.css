@@ -1,6 +1,6 @@
-@import "content/typography/typography";
-@import "components/buttons/buttons";
-@import "components/cards/cards";
+@import "../foundation/typography/typography";
+@import "buttons/buttons";
+@import "cards/cards";
 
 @layer components {
   .brand {

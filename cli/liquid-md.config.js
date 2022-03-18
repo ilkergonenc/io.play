@@ -8,10 +8,10 @@ const config = {
     extname:  '.liquid',
     globals:  YAML.load(fs.readFileSync('temp/DATA.yaml', 'utf8')),
     root:     path.resolve(__dirname, _root+'ui/'),               // root files for `.render()` and `.parse()`
-    layouts:  path.resolve(__dirname, _root+'ui/layout/extend'),  // layout files for `{% layout %}`
+    layouts:  path.resolve(__dirname, _root+'ui/foundation/layout/extend'),  // layout files for `{% layout %}`
     partials: [                                                   // partial files for `{% include %}` and `{% render %}`
       path.resolve(__dirname, _root+'ui'),
-      path.resolve(__dirname, _root+'ui/layout'),
+      path.resolve(__dirname, _root+'ui/foundation/layout'),
       path.resolve(__dirname, _root+'kit'),
     ]
   },

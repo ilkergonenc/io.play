@@ -26,4 +26,4 @@ typo:
   - title: Caption
     class: typo-caption
 ---
-{% render 'content/typography/typography', text: example, typo: typo %}
+{% render 'foundation/typography/typography', text: example, typo: typo %}

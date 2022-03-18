@@ -28,4 +28,4 @@ typo:
   - title: Caption
     class: typo-caption
 ---
-{% render 'content/typography/typography', text: lead, typo: typo %}
+{% render 'foundation/typography/typography', text: lead, typo: typo %}

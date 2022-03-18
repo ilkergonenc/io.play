@@ -23,13 +23,17 @@ navs:
       placeholder: Search...
 
   accordion:
-    - group: foundation
-      items:
-        - frames
-        - surfaces
-        - elavation
-        - navigations
-        - layouts
+    # - group: getting-started
+    #   items:
+    #     - introduction
+    #     - build-tools
+    # - group: foundation
+    #   items:
+    #     - frames
+    #     - surfaces
+    #     - elavation
+    #     - navigations
+    #     - layouts
     - group: design
       items:
         - colors
@@ -46,12 +50,16 @@ navs:
         - boards
         - offCanvas
         - tooltips
-    - group: plugins
-      items:
-        - highlight
-        - clipboard
-        - tocmenu
-        - search
+    # - group: plugins
+    #   items:
+    #     - highlight
+    #     - clipboard
+    #     - anchor
+    #     - toc
+    #     - search
+    # - group: utilities
+    #   items:
+    #     - customization
   
 socials:
   - platform: Github
