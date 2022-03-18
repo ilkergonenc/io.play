@@ -1,12 +1,3 @@
-root: 
-  cwd: './'
-  path: '/@'
-
-meta: 
-  lang: en
-  name: bend.ui
-  title: WebUI Kit & Design System
-
 navs:
   header:
     main:
@@ -23,10 +14,3 @@ navs:
         class: hidden bg-primary text-secondary font-semibold px-6 py-2 rounded-full drop-shadow md:block hover:bg-indigo-700 transition
     search:
       placeholder: Search...
-
-  
-socials:
-  - platform: Github
-    icon: github
-    link: https://github.com/ilkergonenc/io.play
-

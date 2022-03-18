@@ -1,5 +1,5 @@
 ---
-nav: ''
+nav: '/'
 title: Welcome
 name: İlker Gönenç
 ---

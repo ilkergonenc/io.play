@@ -1,0 +1,84 @@
+bend:
+  root:
+    cwd: ./
+    path: /@
+  meta:
+    lang: en
+    name: bend.ui
+    title: WebUI Kit & Design System
+  socials:
+    - platform: Github
+      icon: github
+      link: https://github.com/ilkergonenc/io.play
+  navs:
+    header:
+      main:
+        - link: /
+          title: Design
+        - link: /build
+          title: System
+        - link: /experience
+          title: Experience
+        - link: /docs
+          title: Learn
+        - link: '#'
+          title: Play
+          class: >-
+            hidden bg-primary text-secondary font-semibold px-6 py-2
+            rounded-full drop-shadow md:block hover:bg-indigo-700 transition
+      search:
+        placeholder: Search...
+
+docs:
+  root:
+    cwd: ./
+    path: /@/docs
+  meta:
+    lang: en
+    name: play.io
+    title: Static WebUI Renderr
+  navs:
+    header:
+      main:
+        - link: /components
+          title: Components
+      search:
+        placeholder: Search...
+    accordion:
+      - group: getting-started
+        items:
+          - introduction
+          - build-tools
+      - group: foundation
+        items:
+          - surface
+          - elevation
+          - layout
+          - color
+          - typography
+          - navigation
+      - group: components
+        items:
+          - cards
+          - buttons
+          - callouts
+          - dropdown
+          - collapse
+          - accordion
+          - tabs
+          - boards
+          - offCanvas
+          - tooltips
+  socials:
+    - platform: Github
+      icon: github
+      link: https://github.com/ilkergonenc/io.play
+    - platform: Dribbble
+      icon: dribbble
+      link: '#'
+    - platform: Behance
+      icon: behance
+      link: '#'
+    - platform: Instagram
+      icon: instagram
+      link: '#'

@@ -1,7 +1,7 @@
 ---
 _root: '../../../'
 layout: docs
-group: Design
+group: Foundation
 title: Colors
 lead: bend design system is awesome!
 ---

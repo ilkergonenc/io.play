@@ -1,5 +1,6 @@
 ---
 _root: '../'
+nav: build
 title: Build
 example: bend design system is awesome!
 typo: 

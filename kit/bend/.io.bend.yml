@@ -1,0 +1,17 @@
+root: 
+  cwd: './'
+  path: '/@'
+
+meta: 
+  lang: en
+  name: bend.ui
+  title: WebUI Kit & Design System
+
+
+
+  
+socials:
+  - platform: Github
+    icon: github
+    link: https://github.com/ilkergonenc/io.play
+

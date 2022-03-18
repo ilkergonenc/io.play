@@ -1,7 +1,7 @@
 ---
 _root: '../../../'
 layout: docs
-group: Design
+group: Foundation
 title: Typography
 lead: bend design system is awesome!
 typo: 
