@@ -46,64 +46,12 @@ navs:
         - boards
         - offCanvas
         - tooltips
-
-  aside:
-
-    - title: Foundation
-      href: /docs/components
-      class: heading font-semibold pl-0
-
-    - title: Frames
-      href: /docs/content/typography
-    - title: Surfaces
-      href: /docs/content/typography
-    - title: Elavation
-      href: /docs/content/typography
-    - title: Navigations
-      href: /docs/components/navs
-
-    - title: Content
-      href: /docs/components/navs
-      class: heading font-semibold pl-0
-
-    - title: Typography
-      href: /docs/content/typography
-    - title: Media
-      href: /docs/content/typography
-    - title: Tables
-      href: /docs/content/typography
-
-    - title: Components
-      href: /docs/components
-      class: heading font-semibold pl-0
-
-    - title: Buttons
-      href: /docs/components/buttons
-    - title: Forms
-      href: /docs/components/buttons
-    - title: Cards
-      href: /docs/components/cards
-    - title: Callouts
-      href: /docs/components/callouts
-    - title: Boards
-      href: /docs/components/boards
-    - title: Tooltips
-      href: /docs/components/tooltips
-
-    - title: Transitions
-      href: /docs/components
-      class: heading font-semibold pl-0
-      
-    - title: Dropdown
-      href: /docs/components/dropdown
-    - title: Collapse
-      href: /docs/components/collapse
-    - title: Accordion
-      href: /docs/components/accordion
-    - title: OffCanvas
-      href: /docs/components/offcanvas
-    - title: Tabs
-      href: /docs/components/tabs
+    - group: plugins
+      items:
+        - highlight
+        - clipboard
+        - tocmenu
+        - search
   
 socials:
   - platform: Github

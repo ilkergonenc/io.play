@@ -1,1 +1,5 @@
-@layer utilities {}
+@layer utilities {
+  .x-custom {
+    display: block !important;
+  }
+}
