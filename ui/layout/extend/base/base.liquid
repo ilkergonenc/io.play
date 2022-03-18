@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% assign DATA = play %}
+<html lang={{ DATA.meta.lang }}>
+<head>
+  {% block head %}{% render "extend/base/head", title: title, _root: _root %}{% endblock %}
+</head>
+<body>
+  <!-- Header ======================================================= -->
+  {% block header %}{% render "sections/header/header" %}{% endblock %}
+  <!-- Header | End ================================================= -->
+
+  {% block main %}
+    <!-- Main ======================================================= -->
+    <main class="w-full mx-auto">
+      {% block %}<!-- MainContent -->{% endblock %}
+    </main>
+    <!-- Main | End ================================================= -->
+  {% endblock %}
+
+  <!-- Footer ======================================================= -->
+  {% block footer %}{% render "sections/footer/footer" %}{% endblock %}
+  <!-- Footer | End ================================================= -->
+
+  {% block foot %}{% render "extend/@/foot", _root: _root %}{% endblock %}
+  <!-- body & html | End ======================================================= -->
+</body>
+</html>

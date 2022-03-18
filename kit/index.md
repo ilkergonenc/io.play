@@ -1,4 +1,5 @@
 ---
+nav: ''
 title: Welcome
 name: İlker Gönenç
 ---
@@ -9,8 +10,7 @@ name: İlker Gönenç
       <!-- <p class="display-xl font-light font-brand mb-2">
         {{ meta.name }}
       </p> -->
-      <img src="bend.png" class="h-[5.321rem]">
-      <!-- <img src="logo.png" class="h-[4rem] ml-4"> -->
+      <img src="assets/images/bend.png" class="h-[5.321rem]">
     </div>
     <p class="heading font-light mb-1">
     a user interface design system

@@ -1,0 +1,41 @@
+<div x-data="{ accordionExpanded: 1 }" class="accordion divide-y divide-gray/40">
+
+  <div 
+    x-data="accordion(1)" 
+    class="collapse-box bg-surface/75 text-on-surface p-4
+  ">
+    <button @click="expanded = ! expanded" class="w-full flex justify-between items-center" type="button">
+      <span>Toggle Accordion #1</span>
+      <span x-show="expanded" aria-hidden="true" class="text-lg font-bold ml-4">−</span>
+      <span x-show="!expanded" aria-hidden="true" class="text-lg font-bold ml-4" style="display: none;">+</span>
+    </button>
+
+    <div x-show="expanded" x-collapse class="card mt-6">
+      <p class="py-2 mb-2">
+        Reprehenderit eu excepteur ullamco esse cillum reprehenderit exercitation labore non. Dolore dolore ea dolore veniam sint in sint ex Lorem ipsum. Sint laborum deserunt deserunt amet voluptate cillum deserunt. Amet nisi pariatur sit ut id. Ipsum est minim est commodo id dolor sint id quis sint Lorem.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div 
+    x-data="accordion(2)" 
+    class="collapse-box bg-surface/75 text-on-surface p-4
+  ">
+    <button @click="expanded = ! expanded" class="w-full flex justify-between items-center" type="button">
+      <span>Toggle Accordion #2</span>
+      <span x-show="expanded" aria-hidden="true" class="text-lg font-bold ml-4">−</span>
+      <span x-show="!expanded" aria-hidden="true" class="text-lg font-bold ml-4" style="display: none;">+</span>
+    </button>
+
+    <div x-show="expanded" x-collapse class="card mt-6">
+      <p class="py-2 mb-2">
+        Reprehenderit eu excepteur ullamco esse cillum reprehenderit exercitation labore non. Dolore dolore ea dolore veniam sint in sint ex Lorem ipsum. Sint laborum deserunt deserunt amet voluptate cillum deserunt. Amet nisi pariatur sit ut id. Ipsum est minim est commodo id dolor sint id quis sint Lorem.
+      </p>
+    </div>
+    
+  </div>
+
+
+</div>

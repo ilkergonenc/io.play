@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% assign DATA = docs %}
+<html lang={{ DATA.meta.lang }}>
+<head>
+  {% block head %}{% render "extend/docs/head", title: title, _root: _root %}{% endblock %}
+</head>
+<body>
+  <!-- Header ======================================================= -->
+  {% block header %}{% render "sections/header/header-docs", title: title, group: group %}{% endblock %}
+  <!-- Header | End ================================================= -->
+
+  {% block main %}
+  {% if grid == 'full' %}
+      <!-- Main ======================================================= -->
+      <main class="
+        w-full 
+        min-h-[70vh] 
+        mx-auto 
+        px-5 py-7
+        xl:w-4/6
+      ">
+        {% block %}<!-- MainContent -->{% endblock %}
+      </main>
+      <!-- Main | End ================================================= -->
+  {% else %}
+    <section class="w-full grid grid-cols-6">
+      <!-- Aside ======================================================= -->
+      {% render "sections/aside/aside-docs" %}
+      <!-- Aside | End ======================================================= -->
+      <!-- Main ======================================================= -->
+      <article class="
+        col-span-5
+        min-h-[70vh] 
+        px-5 py-7
+      ">
+        <section class="grid grid-cols-5 gap-4">
+          <section class="col-span-4">
+            <header>
+              <h1 class="display-xl font-light">{{ title }}</h1>
+              {% if lead %}<p class="display-sm font-light">{{ lead }}</p>{% endif %}
+            </header>
+            <hr class="my-8">
+            <main>
+              {% block %}<!-- MainContent -->{% endblock %}
+            </main>
+            <hr class="my-8">
+            <footer>
+              <h5 class="heading-sub">{{ title }}</h5>
+            </footer>
+          </section>
+          <aside class="px-5 py-4 my-5 border-l border-slate-200 h-fit">
+            <ul class="space-y-1">
+              {% for item in docs.navs.aside %}
+                {% unless item.class %}
+                  <li><a class="typo-caption text-slate-600" href="{{ docs.root.path }}{{ item.href }}">{{ item.title }}</a></li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          </aside>
+        </section>
+      </article>
+      <!-- Main | End ================================================= -->
+    </section>
+  {% endif %}
+  {% endblock %}
+
+  <!-- Footer ======================================================= -->
+  {% block footer %}{% render "sections/footer/footer" %}{% endblock %}
+  <!-- Footer | End ================================================= -->
+
+  {% block foot %}{% render "extend/@/foot", _root: _root %}{% endblock %}
+  <!-- body & html | End ======================================================= -->
+</body>
+</html>

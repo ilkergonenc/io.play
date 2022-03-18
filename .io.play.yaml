@@ -13,11 +13,11 @@ navs:
       - link: '/'
         title: Design
       - link: '/build'
-        title: Build
+        title: System
       - link: '/experience'
         title: Experience
       - link: '/docs'
-        title: Docs
+        title: Learn
       - link: '#'
         title: Play
         class: hidden bg-primary text-secondary font-semibold px-6 py-2 rounded-full drop-shadow md:block hover:bg-indigo-700 transition

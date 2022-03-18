@@ -1,7 +1,9 @@
 ---
-_root: '../'
-title: Build
-example: bend design system is awesome!
+_root: '../../../'
+layout: docs
+group: Design
+title: Typography
+lead: bend design system is awesome!
 typo: 
   - title: Display x-large
     class: display-xl
@@ -26,4 +28,4 @@ typo:
   - title: Caption
     class: typo-caption
 ---
-{% render 'content/typography/typography', text: example, typo: typo %}
+{% render 'content/typography/typography', text: lead, typo: typo %}

@@ -1,6 +1,6 @@
 root: 
   cwd: './'
-  path: '/@'
+  path: '/@/docs'
 
 meta: 
   lang: en
@@ -10,35 +10,100 @@ meta:
 navs:
   header:
     main:
-      - link: '/'
-        title: Home
-      - link: '/docs'
-        title: Docs
-      - link: '/examples'
-        title: Examples
-      - link: '#'
-        title: Downloads
-        class: hidden bg-slate-800 text-slate-100 px-4 py-2 rounded-full md:block
+      # - link: '/'
+      #   title: Home
+      # - link: '/docs'
+      #   title: Docs
+      - link: '/components'
+        title: Components
+      # - link: '#'
+      #   title: Downloads
+      #   class: hidden bg-slate-800 text-slate-100 px-4 py-2 rounded-full md:block
     search:
       placeholder: Search...
 
-  aside:
-    - group: getting-started
+  accordion:
+    - group: foundation
       items:
-        - introduction
-        - file-structure
-        - build-tools
+        - frames
+        - surfaces
+        - elavation
+        - navigations
+        - layouts
+    - group: design
+      items:
+        - colors
+        - typography
     - group: components
       items:
-        - alerts
+        - cards
         - buttons
-        - dropdowns
-        - forms
-        - input-group
-    - group: plugins
-      items:
-        - drawer
-        - show-hide-password
+        - callouts
+        - dropdown
+        - collapse
+        - accordion
+        - tabs
+        - boards
+        - offCanvas
+        - tooltips
+
+  aside:
+
+    - title: Foundation
+      href: /docs/components
+      class: heading font-semibold pl-0
+
+    - title: Frames
+      href: /docs/content/typography
+    - title: Surfaces
+      href: /docs/content/typography
+    - title: Elavation
+      href: /docs/content/typography
+    - title: Navigations
+      href: /docs/components/navs
+
+    - title: Content
+      href: /docs/components/navs
+      class: heading font-semibold pl-0
+
+    - title: Typography
+      href: /docs/content/typography
+    - title: Media
+      href: /docs/content/typography
+    - title: Tables
+      href: /docs/content/typography
+
+    - title: Components
+      href: /docs/components
+      class: heading font-semibold pl-0
+
+    - title: Buttons
+      href: /docs/components/buttons
+    - title: Forms
+      href: /docs/components/buttons
+    - title: Cards
+      href: /docs/components/cards
+    - title: Callouts
+      href: /docs/components/callouts
+    - title: Boards
+      href: /docs/components/boards
+    - title: Tooltips
+      href: /docs/components/tooltips
+
+    - title: Transitions
+      href: /docs/components
+      class: heading font-semibold pl-0
+      
+    - title: Dropdown
+      href: /docs/components/dropdown
+    - title: Collapse
+      href: /docs/components/collapse
+    - title: Accordion
+      href: /docs/components/accordion
+    - title: OffCanvas
+      href: /docs/components/offcanvas
+    - title: Tabs
+      href: /docs/components/tabs
   
 socials:
   - platform: Github

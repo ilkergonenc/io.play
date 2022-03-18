@@ -1,0 +1,13 @@
+<!---
+ //- Tooltips
+--->
+<button 
+  x-data
+  x-data
+  x-tooltip="Copy to clipboard!"
+  data-clipboard-target="#{{ DATA.title | replace: ' ', '' }}{{ tab.title | capitalize }}" 
+  class="btn" 
+  type="button"
+>
+  Tooltip
+</button>

@@ -1,6 +1,8 @@
 ---
 _root: '../'
 layout: docs
+nav: 'docs'
+grid: full
 title: Welcome
 name: İlker Gönenç
 ---

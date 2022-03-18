@@ -7,27 +7,40 @@ const config = {
   engine: {
     extname:  '.liquid',
     globals:  YAML.load(fs.readFileSync('temp/DATA.yaml', 'utf8')),
-    root:     path.resolve(__dirname, _root+'ui/'),        // root files for `.render()` and `.parse()`
-    layouts:  path.resolve(__dirname, _root+'ui/layouts'), // layout files for `{% layout %}`
-    partials: [                                            // partial files for `{% include %}` and `{% render %}`
-      path.resolve(__dirname, _root+'ui/components'),
-      path.resolve(__dirname, _root+'ui/layouts/components'),
-      path.resolve(__dirname, _root+'ui/sections'),
+    root:     path.resolve(__dirname, _root+'ui/'),               // root files for `.render()` and `.parse()`
+    layouts:  path.resolve(__dirname, _root+'ui/layout/extend'),  // layout files for `{% layout %}`
+    partials: [                                                   // partial files for `{% include %}` and `{% render %}`
+      path.resolve(__dirname, _root+'ui'),
+      path.resolve(__dirname, _root+'ui/layout'),
       path.resolve(__dirname, _root+'kit'),
-      path.resolve(__dirname, _root+'re/css'),
     ]
   },
   paths: {
-    src:    [_root+'kit/**/*.md', _root+'re/**/*.md'], 
+    src:    [_root+'**/ui/**/*.md', _root+'kit/**/*.md'], 
     dest:   _root+'@' ,
   },
+  beautify:       { indent_size: 2, indent_with_tabs: true },
   frontMatter:    { property: 'frontMatter', remove: true },
   // liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}{% block page %}${contents}{% endblock %}`,
-  liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout : 'base'}' %}${contents}`,
-  beautify:       { indent_size: 2, indent_with_tabs: true },
+  liquidTemplate: (contents, frontMatter) => `{% layout '${frontMatter.layout ? frontMatter.layout+'/'+frontMatter.layout : 'base/base'}' %}${contents}`,
+  fileRelative:   (frontMatter) => {
+      const toKebabCase = str => str && str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g).map(x => x.toLowerCase()).join('-')
+      let fileRelative = '';
+      if(typeof frontMatter.nav !== "undefined") {
+        fileRelative = frontMatter.nav + '\\'
+      } else {
+        typeof frontMatter.layout !== "undefined" ? fileRelative = fileRelative + frontMatter.layout + '\\' : ''
+        if (frontMatter.group === frontMatter.title) {
+          typeof frontMatter.title !== "undefined" ? fileRelative = fileRelative + toKebabCase(frontMatter.title) + '\\' : ''
+        } else {
+          typeof frontMatter.group !== "undefined" ? fileRelative = fileRelative + toKebabCase(frontMatter.group) + '\\' : ''
+          typeof frontMatter.title !== "undefined" ? fileRelative = fileRelative + toKebabCase(frontMatter.title) + '\\' : ''
+        }
+      }
+      fileRelative = fileRelative + 'index.html'
+      return fileRelative;
+  },
   rename:         file => {
-    if (file.dirname.includes('css') && file.dirname.includes('docs')) 
-      file.dirname = file.dirname.replace('css', 'docs').replace('\\docs', '')
     if (file.basename!='index' && !file.dirname.includes(file.basename.replace('_',''))) 
       return { dirname: file.dirname+'/'+file.basename, basename: 'index', extname: '.html' }
     else 
@@ -50,14 +63,19 @@ exports.staticHTML    = async function staticHTML() {
   // CUSTOM LIQUID JS PIPE WITH MAP-STREAM
   const map           = require('map-stream')
   const { Liquid }    = require('liquidjs')
+  const Vinyl         = require('vinyl')
   const engine        = new Liquid(config.engine)                         // strart liquid engine
   const liquidjs      = map(async function (file, callback) {             // map stream
     const frontMatter = file[config.frontMatter.property]                 // catch data from stream file
     const strContents = config.fixMarkdown(file.contents.toString())      // buffer to string stream content
     const liquid      = config.liquidTemplate(strContents, frontMatter)   // wrap in to a liquid layout
     const html        = await engine.parseAndRender(liquid, frontMatter)  // render liquid to html
-    file.contents     = new Buffer.from(html)                             // string back to buffer
-    callback(null, file)                                                  // return as stream
+    const vinyl       = new Vinyl({
+      cwd:            '/',
+      path:           '/'+config.fileRelative(frontMatter),
+      contents:       Buffer.from(html) 
+    });
+    callback(null, vinyl)                                                  // return as stream
   })
   // BUILD STATIC HTML TASK
   return src(config.paths.src)
@@ -65,26 +83,23 @@ exports.staticHTML    = async function staticHTML() {
     .pipe(data(file => file[config.frontMatter.property]))
     .pipe(markdown())
     .pipe(liquidjs)
-    .pipe(beautify(config.beautify))
     .pipe(rename(config.rename))
+    .pipe(beautify(config.beautify))
     .pipe(dest(config.paths.dest))
 }
 
 exports.staticDATA    = async function staticDATA() {
-
-  const { src, dest } = require('gulp'); 
-  const map           = require('map-stream'); 
-  const concat        = require('gulp-concat'); 
-
+  const { src, dest } = require('gulp') 
+  const map           = require('map-stream') 
+  const concat        = require('gulp-concat') 
   return src('../.io.*.yaml')
     .pipe(map(async function (file, callback) { 
-      let key = file.path.split('\\').pop().split('.')[2]
-      let data = {}
-      data[key] = YAML.load(file.contents)
-      file.contents     = new Buffer.from(YAML.dump(data))   
+      let key         = file.path.split('\\').pop().split('.')[2]
+      let data        = {}
+      data[key]       = YAML.load(file.contents)
+      file.contents   = new Buffer.from(YAML.dump(data))   
       callback(null, file)
     }))
     .pipe(concat('DATA.yaml'))
     .pipe(dest('../cli/temp'))
-
 }

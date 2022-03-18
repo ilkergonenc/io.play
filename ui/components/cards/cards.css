@@ -1,0 +1,5 @@
+@layer components {
+  .card {
+    @apply p-4 border bg-surface text-on-surface border-skin-soft rounded;
+  }
+}

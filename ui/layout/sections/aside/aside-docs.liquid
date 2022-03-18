@@ -1,0 +1,34 @@
+<!-- {% assign aside = docs.navs.aside %} -->
+<aside class="text-right px-5 py-7 h-screen bg-slate-500/5 border-r border-slate-200">
+  <nav x-data="{ accordionExpanded: 3 }">
+    {% for collapse in docs.navs.accordion %}
+      <div x-data="accordion({{ forloop.index }})">
+        <button 
+          @click="expanded = ! expanded"
+          type="button" 
+          class="heading-sub py-2.5"
+        >
+          {{ collapse.group | replace: '-', ' ' | capitalize }}
+        </button>
+        
+        <ul 
+          x-show="expanded"
+          x-collapse 
+          x-cloak
+          class="space-y-2.5 py-2.5 mb-2.5"
+        >
+          {% for item in collapse.items %}
+            <li>
+              <a 
+                href="{{ docs.root.path }}/{{ collapse.group }}/{{ item }}" 
+                class="text-sm"
+              >
+                {{ item | replace: '-', ' ' | capitalize }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </nav>
+</aside>

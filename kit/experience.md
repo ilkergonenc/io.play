@@ -1,8 +1,8 @@
 ---
 _root: '../'
-title: Examples
+title: Experience
 foo:
   title: Some things to say
 ---
 
-{% render 'card', DATA: foo %}
+{% render 'components/cards/card', DATA: foo %}
