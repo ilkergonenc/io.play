@@ -1,12 +1,12 @@
-<!-- {% assign aside = docs.navs.aside %} -->
 <aside class="text-right px-5 py-7 h-screen bg-slate-500/5 border-r border-slate-200">
-  <nav x-data="{ accordionExpanded: 3 }">
+  <nav x-data="navAside">
     {% for collapse in docs.navs.accordion %}
-      <div x-data="accordion({{ forloop.index }})">
+      <div x-data="navAsideAccordion('{{ collapse.group }}')">
         <button 
           @click="expanded = ! expanded"
           type="button" 
           class="heading-sub py-2.5"
+          :class="expanded ? 'text-slate-600' : 'text-slate-800'"
         >
           {{ collapse.group | replace: '-', ' ' | capitalize }}
         </button>
@@ -22,6 +22,7 @@
               <a 
                 href="{{ docs.root.path }}/{{ collapse.group }}/{{ item }}" 
                 class="text-sm"
+                :class="activeLink === '{{ item }}' ? 'font-semibold text-slate-700' : 'text-slate-600'"
               >
                 {{ item | replace: '-', ' ' | capitalize }}
               </a>
@@ -32,3 +33,22 @@
     {% endfor %}
   </nav>
 </aside>
+<script>
+  // console.log("currentGroup: ", window.location.pathname.split('/')[3])
+  // console.log("currentItem: ", window.location.pathname.split('/')[4])
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navAside', () => ({
+      currentItem: window.location.pathname.split('/')[3],
+      activeLink: window.location.pathname.split('/')[4],
+    }))
+    Alpine.data('navAsideAccordion', (currentHandle = '') => ({
+      handle: currentHandle,
+      get expanded() {
+        return this.currentItem === this.handle
+      },
+      set expanded(value) {
+        this.currentItem = value ? this.handle : null
+      },
+    }))
+  })
+</script>

@@ -1,5 +1,7 @@
 @layer utilities {
-  .x-custom {
-    display: block !important;
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

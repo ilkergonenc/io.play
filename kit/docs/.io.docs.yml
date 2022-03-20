@@ -8,22 +8,16 @@ meta:
   title: Static WebUI Renderr
 
 navs:
-  header:
-    main:
-      # - link: '/'
-      #   title: Home
-      # - link: '/docs'
-      #   title: Docs
-      - link: '/components'
-        title: Components
-      # - link: '#'
-      #   title: Downloads
-      #   class: hidden bg-slate-800 text-slate-100 px-4 py-2 rounded-full md:block
-    search:
-      placeholder: Search...
+  main:
+    - title: bend
+      href: '/@'
+    - title: docs
+      href: '/@/docs'
+    # - title: ui|kit
+    #   href: '/@/docs'
 
   accordion:
-    - group: getting-started
+    - group: start-here
       items:
         - introduction
         - build-tools
@@ -31,10 +25,12 @@ navs:
       items:
         - surface
         - elevation
-        - layout
+        - light
         - color
         - typography
+        - layout
         - navigation
+        - notification
 
     - group: components
       items:
@@ -45,6 +41,7 @@ navs:
         - collapse
         - accordion
         - tabs
+        - lists
         - boards
         - offCanvas
         - tooltips
@@ -55,9 +52,12 @@ navs:
     #     - anchor
     #     - toc
     #     - search
-    # - group: utilities
-    #   items:
-    #     - customization
+    - group: utilities
+      items:
+        - customization
+    - group: about
+      items:
+        - design system
   
 socials:
   - platform: Github

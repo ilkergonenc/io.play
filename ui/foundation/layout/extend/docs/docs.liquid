@@ -60,9 +60,14 @@
           <!-- Article Aside ======================================================= -->
           <aside class="px-5 py-4 my-5 border-l border-slate-200 h-fit">
             <ul class="space-y-1">
-              {% for item in docs.navs.aside %}
+              {% for item in docs.navs.main %}
                 {% unless item.class %}
-                  <li><a class="typo-caption text-slate-600" href="{{ docs.root.path }}{{ item.href }}">{{ item.title }}</a></li>
+                  <li><a class="typo-caption text-slate-600" href="{{ item.href }}">{{ item.title | replace: '-', ' ' | capitalize }}</a></li>
+                {% endunless %}
+              {% endfor %}
+              {% for item in docs.navs.accordion %}
+                {% unless item.class %}
+                  <li><a class="text-xs ml-3 text-slate-600" href="/@/docs/{{ item.group }}">{{ item.group | replace: '-', ' ' | capitalize }}</a></li>
                 {% endunless %}
               {% endfor %}
             </ul>

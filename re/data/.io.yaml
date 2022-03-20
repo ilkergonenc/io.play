@@ -38,14 +38,13 @@ docs:
     name: play.io
     title: Static WebUI Renderr
   navs:
-    header:
-      main:
-        - link: /components
-          title: Components
-      search:
-        placeholder: Search...
+    main:
+      - title: bend
+        href: /@
+      - title: docs
+        href: /@/docs
     accordion:
-      - group: getting-started
+      - group: start-here
         items:
           - introduction
           - build-tools
@@ -53,10 +52,12 @@ docs:
         items:
           - surface
           - elevation
-          - layout
+          - light
           - color
           - typography
+          - layout
           - navigation
+          - notification
       - group: components
         items:
           - cards
@@ -66,9 +67,16 @@ docs:
           - collapse
           - accordion
           - tabs
+          - lists
           - boards
           - offCanvas
           - tooltips
+      - group: utilities
+        items:
+          - customization
+      - group: about
+        items:
+          - design system
   socials:
     - platform: Github
       icon: github
